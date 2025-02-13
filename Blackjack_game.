@@ -1,0 +1,96 @@
+My second project Blackjak Game.
+
+.------.            _     _            _    _            _    
+|A_  _ |.          | |   | |          | |  (_)          | |   
+|( \/ ).-----.     | |__ | | __ _  ___| | ___  __ _  ___| | __
+| \  /|K /\  |     | '_ \| |/ _` |/ __| |/ / |/ _` |/ __| |/ /
+|  \/ | /  \ |     | |_) | | (_| | (__|   <| | (_| | (__|   < 
+`-----| \  / |     |_.__/|_|\__,_|\___|_|\_\ |\__,_|\___|_|\_\
+      |  \/ K|                            _/ |                
+      `------'                           |__/           
+
+
+import random
+import art
+
+def blackjack():
+    cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+    print(art.logo)
+
+    permition2 = input("Do you want to play game of Blackjack? Type 'y' or 'n' : ")
+    if permition2.lower() != "y":
+        return
+    user_card = random.sample(cards, 2)
+    comp_card = random.sample(cards, 2)
+    user_sum = sum(user_card)
+    comp_sum = sum(comp_card)
+
+    print(f"Your cards: {user_card},  sum:{sum(user_card)}")
+    print(f"Computer's first card: : {comp_card[0]}")
+
+
+# Check if player or computer already has Blackjack.
+    if user_sum == 21:
+        print(f"Player has Blackjack! he wins the game.")
+        permition3 = input("Do you want to play game of Blackjack? Type 'y' or 'n' : ")
+        if permition3.lower() == 'y':
+          print("\n" * 20)
+          blackjack()
+    elif comp_sum == 21:
+        print(f"Computer has Blackjack! he wins the game.")
+        permition3 = input("Do you want to play game of Blackjack? Type 'y' or 'n' : ")
+        if permition3.lower() == 'y':
+           print("\n" * 20)
+           blackjack()
+        return
+# let player draw more cards if they need
+    while user_sum < 21:
+        permition = input("Type 'y' to get another card, type 'n' to pass: ")
+        if permition == 'y':
+            new_card =random.choice(cards)
+            user_card.append(new_card)
+            user_sum= sum(user_card)
+           # if user card go over 21 and if it has 11 convert it into 1
+            while user_sum > 21 and 11 in user_card:
+                user_card[user_card.index(11)] = 1
+                user_sum = sum(user_card)
+
+            print(f"Your cards: {user_card}, sum: {user_sum}")
+            print(f"Computer's first card: : {comp_card[0]}")
+
+            if user_sum > 21:
+                print("You went over. You lose")
+                return
+        else:
+            break
+
+    while comp_sum < 17:
+        new_card =random.choice(cards)
+        comp_card.append(new_card)
+        comp_sum = sum(comp_card)
+
+        while comp_sum > 21 and 11 in comp_card:
+            comp_card[comp_card.index(11)] = 1
+            comp_sum = sum(comp_card)
+    print(f"Your final cards: {user_card},  Final score:{sum(user_card)}")
+    print(f"Computer's final card: : {comp_card} , Final score:{sum(comp_card)}")
+
+    if user_sum > 21:
+        print("You went over. You lose")
+    elif comp_sum > 21:
+        print("Dealer went over. You win!")
+    elif user_sum > comp_sum:
+        print("You win!")
+    elif user_sum < comp_sum:
+        print("You lose.")
+    else:
+        print("it's a draw!")
+
+    permition3 = input("Do you want to play game of Blackjack? Type 'y' or 'n' : ")
+    if permition3.lower() == 'y':
+        print("\n" * 20)
+        blackjack()
+
+
+
+blackjack()
