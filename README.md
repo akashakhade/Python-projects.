@@ -4,44 +4,31 @@ This is my first project which is calculator.
 import art
 """ write code for input of +, -,*,/.
 """
-
 def add(n1, n2):
     return n1 + n2
-
 def subtract(n1, n2):
     return n1 - n2
-
 def multiply(n1, n2):
     return n1 * n2
-
 def divide(n1, n2):
     return  n1 / n2
 
 """ Add these 4 functions into a dictionary as the values. Keys = "+", "-", "*", "/"
  """
-
 operation = {
     "+" : add,
-    
     "-" : subtract,
-    
     "*" : multiply,
-    
     "/" : divide
-
 }
 
 """  Use the dictionary operations to perform the calculations. Multiply 4 * 8 using the dictionary."""
 
 def calculation():
-   
-   print(art.logo)
-
-   should_i= True
-   
-   a = float(input("Enter the 1 num = "))
-   
-   while should_i:
+    print(art.logo)
+    should_i= True
+    a = float(input("Enter the 1 num = "))
+    while should_i:
      
      for symbol in operation:
          
