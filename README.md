@@ -19,11 +19,16 @@ def divide(n1, n2):
 
 """ Add these 4 functions into a dictionary as the values. Keys = "+", "-", "*", "/"
  """
+
 operation = {
     "+" : add,
+    
     "-" : subtract,
+    
     "*" : multiply,
+    
     "/" : divide
+
 }
 
 """  Use the dictionary operations to perform the calculations. Multiply 4 * 8 using the dictionary."""
