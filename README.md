@@ -38,11 +38,17 @@ def calculation():
    print(art.logo)
 
    should_i= True
+   
    a = float(input("Enter the 1 num = "))
+   
    while should_i:
+     
      for symbol in operation:
+         
          print(symbol)
+     
      operator = input("Enter operator = ")
+     
      b = float(input("Enter the 2 num = "))
 
      if operator in operation:
