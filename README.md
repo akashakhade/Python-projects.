@@ -32,7 +32,9 @@ operation = {
 }
 
 """  Use the dictionary operations to perform the calculations. Multiply 4 * 8 using the dictionary."""
+
 def calculation():
+   
    print(art.logo)
 
    should_i= True
