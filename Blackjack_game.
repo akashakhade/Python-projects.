@@ -1,5 +1,5 @@
 My second project Blackjak Game.
-
+"""
 .------.            _     _            _    _            _    
 |A_  _ |.          | |   | |          | |  (_)          | |   
 |( \/ ).-----.     | |__ | | __ _  ___| | ___  __ _  ___| | __
@@ -8,7 +8,7 @@ My second project Blackjak Game.
 `-----| \  / |     |_.__/|_|\__,_|\___|_|\_\ |\__,_|\___|_|\_\
       |  \/ K|                            _/ |                
       `------'                           |__/           
-
+"""
 
 import random
 import art
