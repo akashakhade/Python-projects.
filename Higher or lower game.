@@ -1,1 +1,34 @@
+import random
+import game_data
+import art
+
+Compare_A = random.choice(game_data.data)
+Compare_B = random.choice(game_data.data)
+
+score = 0  # Initialize score counting.
+# keeping both options different.
+if Compare_A == Compare_B:
+    Compare_B = random.choice(game_data.data)
+game_should_continue = True  # loop control.
+while game_should_continue:
+    print(art.logo)
+    #Displaying detail of game.
+    print(f"Compare A: {Compare_A['name']}, a {Compare_A['description']}, from {Compare_A['country']}.")
+    print(art.vs)
+    print(f"Compare B: {Compare_B['name']}, a {Compare_B['description']}, from {Compare_B['country']}.")
+
+    followers_A = Compare_A['follower_count'] # tacking follower count for comparision.
+    followers_B = Compare_B['follower_count']
+    permition = input("Who has more followers? Type 'A' OR 'B'= ").upper()
+
+       # checking haighest follower count.
+    if (permition == 'A' and followers_A > followers_B) or (permition == 'B' and followers_B > followers_A):
+            score += 1
+            print(f"Correct! Your current score is: {score}")
+            Compare_A = Compare_B
+            Compare_B = random.choice(game_data.data)
+            print("\n" * 20)
+    else:
+        print(f"Sorry, that's wrong. Final score: {score}")
+        game_should_continue = False
 
